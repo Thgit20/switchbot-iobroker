@@ -1,0 +1,28 @@
+<div>
+    <h2>SwitchBot</h2>
+
+    <label>Token</label><br />
+    <input id="token" style="width:100%" /><br />
+
+    <label>Secret</label><br />
+    <input id="secret" style="width:100%" /><br />
+
+    <label>Interval</label><br />
+    <input id="interval" type="number" />
+</div>
+
+<script>
+function load(settings) {
+    token.value = settings.token || "";
+    secret.value = settings.secret || "";
+    interval.value = settings.interval || 30;
+}
+
+function save(cb) {
+    cb({
+        token: token.value,
+        secret: secret.value,
+        interval: parseInt(interval.value)
+    });
+}
+</script>
