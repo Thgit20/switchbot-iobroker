@@ -14,7 +14,8 @@ class Switchbot extends utils.Adapter {
     async onReady() {
         this.api = new API(this.config);
         this.queue = new Queue(this);
-
+        this.devices = {};
+        
         startWebhook(this);
 
         await this.syncDevices();
