@@ -1,0 +1,14 @@
+iobroker.switchbot/
+├── admin/
+│   └── index_m.html
+├── lib/
+│   ├── api.js
+│   ├── queue.js
+│   └── webhook.js
+├── main.js
+├── package.json
+├── io-package.json
+├── README.md
+├── .gitignore
+└── Dockerfile
+``
