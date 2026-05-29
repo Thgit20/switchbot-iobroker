@@ -2,7 +2,7 @@
   "name": "iobroker.switchbot",
   "version": "1.0.0",
   "description": "SwitchBot adapter for ioBroker",
-  "author": "YourName",
+  "author": "Thgit20",
   "license": "MIT",
   "main": "main.js",
   "dependencies": {
