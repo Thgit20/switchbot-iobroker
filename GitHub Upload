@@ -2,5 +2,5 @@ git init
 git add .
 git commit -m "initial"
 git branch -M main
-git remote add origin https://github.com/YOURNAME/iobroker.switchbot.git
+git remote add origin https://github.com/Thgit20/iobroker.switchbot.git
 git push -u origin main
