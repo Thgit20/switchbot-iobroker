@@ -114,3 +114,20 @@ if (module.parent) {
 } else {
     new Switchbot();
 }
+this.apiCounter = 0;
+this.apiReset = Date.now();
+
+function canUseAPI() {
+    if (Date.now() - this.apiReset > 86400000) {
+        this.apiCounter = 0;
+        this.apiReset = Date.now();
+    }
+
+    if (this.apiCounter >= 900) {
+        this.log.warn("API Limit fast erreicht!");
+        return false;
+    }
+
+    this.apiCounter++;
+    return true;
+}
