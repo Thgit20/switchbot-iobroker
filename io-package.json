@@ -1,0 +1,18 @@
+{
+  "common": {
+    "name": "switchbot",
+    "version": "1.0.0",
+    "titleLang": { "en": "SwitchBot Adapter" },
+    "desc": { "en": "Control SwitchBot devices" },
+    "authors": ["YourName"],
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "type": "iot-systems",
+    "compact": true
+  },
+  "native": {
+    "token": "",
+    "secret": "",
+    "interval": 30
+  }
+}
