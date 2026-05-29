@@ -54,30 +54,35 @@ class Switchbot extends utils.Adapter {
         this.devices = devices;
     }
 
-    async update() {
-        for (const d of this.devices) {
-            try {
-                const res = await this.api.status(d.deviceId);
-                const s = res.data.body;
+   async smartUpdate() {
+    for (const id in this.devices) {
+        const d = this.devices[id];
 
-                if (s.power) {
-                    await this.setStateAsync(
-                        `${d.deviceId}.power`,
-                        s.power === "on",
-                        true
-                    );
-                }
+        const noWebhook = Date.now() - d.lastUpdate > 10 * 60 * 1000;
 
-                if (s.slidePosition !== undefined) {
-                    await this.setStateAsync(
-                        `${d.deviceId}.position`,
-                        s.slidePosition,
-                        true
-                    );
-                }
-            } catch {}
+        if (!noWebhook) continue;
+
+        if (!this.canUseAPI()) return;
+
+        try {
+            const res = await this.api.status(id);
+            const s = res.data.body;
+
+            d.lastUpdate = Date.now();
+
+            if (s.power !== undefined) {
+                await this.setStateAsync(
+                    `${id}.power`,
+                    s.power === "on",
+                    true
+                );
+            }
+
+        } catch {
+            this.log.debug(`Skip ${id}`);
         }
     }
+}
 
     async onStateChange(id, state) {
         if (!state || state.ack) return;
