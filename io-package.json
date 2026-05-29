@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "titleLang": { "en": "SwitchBot Adapter" },
     "desc": { "en": "Control SwitchBot devices" },
-    "authors": ["YourName"],
+    "authors": ["Thgit20"],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "type": "iot-systems",
