@@ -1,0 +1,2 @@
+if (!this.canUseAPI()) return;
+await this.api.status(id);
